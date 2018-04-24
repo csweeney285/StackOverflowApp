@@ -30,6 +30,7 @@
         //delete all the images for memory space
         user.image = nil;
     }
+    [self reloadTableViewFromMainthread];
 }
 
 - (void)downloadData{
