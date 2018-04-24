@@ -89,21 +89,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CustomTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
     UserObject *user = [self.userArray objectAtIndex: indexPath.row];
-    if (!user.imageDownloaded) {
-        cell.customIV.image = nil;
-        cell.spinner.alpha = 1;
-        [cell.spinner startAnimating];
-        //only download the image if it has not already been downloaded and the user is not scrolling
-        if (!self.scrolling) {
-            [user downloadImage];
-        }
-    }
-    else{
-        cell.spinner.alpha = 0;
-        [cell.spinner stopAnimating];
-        cell.customIV.image = user.image;
-    }
-    cell.label.text = user.textLabelString;
+    if (!user.imageDownloaded && !self.scrolling) [user downloadImage];
+    [cell formatCell: user];
     return cell;
 }
 

@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserObject.h"
 
 @interface CustomTableViewCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 @property (weak, nonatomic) IBOutlet UIImageView *customIV;
 @property (weak, nonatomic) IBOutlet UILabel *label;
+
+- (void)formatCell:(UserObject *)user;
 
 @end
