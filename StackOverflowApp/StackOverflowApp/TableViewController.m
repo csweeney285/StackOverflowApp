@@ -26,6 +26,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    for (UserObject *user in self.userArray) {
+        //delete all the images for memory space
+        user.image = nil;
+    }
 }
 
 - (void)downloadData{
