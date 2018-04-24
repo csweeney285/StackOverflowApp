@@ -1,6 +1,4 @@
 # StackOverflowApp
-# Coding Challenge iOS
-
 ## Functional Requirements
 
 - You will need to connect to [Stackoverflow Users API Endpoint](https://api.stackexchange.com/2.2/users?site=stackoverflow) and retrieve the first page of data. [FULL API documentation](https://api.stackexchange.com/docs)
