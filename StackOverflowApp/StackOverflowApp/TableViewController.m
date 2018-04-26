@@ -101,8 +101,18 @@
     self.scrolling = YES;
 }
 
--(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
+    self.scrolling = YES;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     self.scrolling = NO;
+    [self reloadTableViewFromMainthread];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    self.scrolling = NO;
+    [self reloadTableViewFromMainthread];
 }
 
 @end
